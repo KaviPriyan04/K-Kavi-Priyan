@@ -1,3 +1,4 @@
+task 1a
 graph = { 
 '5' : ['3','7'], 
 '3' : ['2', '4'], 
@@ -22,4 +23,45 @@ visited.append(neighbour)
 queue.append(neighbour) 
 # Driver Code 
 print("Following is the Breadth-First Search") 
-bfs(visited, graph, '5') # function calling
+bfs(visited, graph, '5') # function calling 
+
+Output: 
+Following is the Breadth-First Search 
+5 3 7 2 4 8
+
+task 1b
+graph = { 
+'5' : ['3','7'], 
+'3' : ['2', '4'], 
+'7' : ['8'], 
+'2' : [], 
+'4' : ['8'], 
+'8' : [] 
+} 
+def dfs(graph, start): 
+visited = set() 
+stack = [start] 
+ 
+while stack: 
+node = stack.pop() 
+ 
+if node not in visited: 
+print(node) 
+visited.add(node) 
+ 
+for neighbor in graph[node]: 
+if neighbor not in visited: 
+stack.append(neighbor) 
+ 
+print("Following is the Depth-First Search") 
+dfs(graph, '5') 
+ 
+Output: 
+ 
+Following is the Depth-First Search 
+5 
+3 
+2 
+4 
+8 
+7
